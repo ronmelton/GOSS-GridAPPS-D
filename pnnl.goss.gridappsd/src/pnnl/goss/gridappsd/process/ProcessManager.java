@@ -9,9 +9,6 @@ import org.apache.http.auth.UsernamePasswordCredentials;
 import pnnl.goss.core.Client;
 import pnnl.goss.core.Client.PROTOCOL;
 import pnnl.goss.core.ClientFactory;
-import pnnl.goss.core.server.DataSourceRegistry;
-import pnnl.goss.core.server.RequestHandlerRegistry;
-import pnnl.goss.core.server.ServerControl;
 import pnnl.goss.gridappsd.utils.GridAppsDConstants;
 
 /**
@@ -24,24 +21,17 @@ import pnnl.goss.gridappsd.utils.GridAppsDConstants;
 public class ProcessManager {
 	
 	@ServiceDependency
-	private volatile ServerControl serverControl;
-	
-	@ServiceDependency
-	private volatile RequestHandlerRegistry handler;
+	Client client = null; 
 	
 	@ServiceDependency
 	private volatile ClientFactory clientFactory;
-	
-	@ServiceDependency
-	private volatile DataSourceRegistry datasourceRegistry;
-
 	
 	@Start
 	public void start(){
 		try{
 			Credentials credentials = new UsernamePasswordCredentials(
 					GridAppsDConstants.username, GridAppsDConstants.password);
-			Client client = clientFactory.create(PROTOCOL.STOMP,credentials);
+			client = clientFactory.create(PROTOCOL.STOMP,credentials);
 			
 			client.subscribe(GridAppsDConstants.topic_request, new ProcessEvent());
 		}

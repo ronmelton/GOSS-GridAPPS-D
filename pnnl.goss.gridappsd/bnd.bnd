@@ -17,7 +17,28 @@
 	org.apache.activemq.activemq-osgi,\
 	com.springsource.javax.management.j2ee,\
 	org.apache.felix.http.jetty,\
-	com.google.gson
+	com.google.gson,\
+	org.apache.commons.math3,\
+	com.fasterxml.jackson.core.jackson-core,\
+	com.fasterxml.jackson.core.jackson-annotations,\
+	com.fasterxml.jackson.core.jackson-databind,\
+	com.github.andrewoma.dexx.collection,\
+	com.github.jsonld-java,\
+	jcl.over.slf4j,\
+	jena-arq,\
+	jena-base,\
+	jena-core,\
+	jena-iri,\
+	jena-shaded-guava,\
+	org.apache.commons.cli,\
+	org.apache.commons.codec,\
+	org.apache.commons.csv,\
+	org.apache.commons.io,\
+	org.apache.commons.lang3,\
+	org.apache.thrift,\
+	xercesImpl,\
+	xml-apis,\
+	org.apache.jena.osgi
 
 -plugin org.apache.felix.dm.annotation.plugin.bnd.AnnotationPlugin;log=debug
 	

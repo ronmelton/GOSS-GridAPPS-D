@@ -18,6 +18,7 @@ public class DataEvent implements GossResponseEvent {
 	
 	@Override
 	public void onMessage(Serializable message) {
+		//I think the request needs more information, what type of data request does it expect
 		
 		/*  Parse message. message is in JSON string.
 		 *  create and return response as simulation id
